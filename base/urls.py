@@ -1,8 +1,10 @@
 from django.urls import path
 
-from .views import 
+
+
+from .views import home, room 
 
 urlpatterns = [
-    path(),
-    path()
+    path('home/', home, name='home'),
+    path('room/<slug:pk>/', room , name='room')
 ]
