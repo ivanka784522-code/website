@@ -8,9 +8,11 @@
     <div>
 
        <H1>{{room.name}}</H1>
+ <a href="{% url 'delete-room' room.id %}">delete</a>
 
+    </div>
 
- 
+   
 </div>
 
-{% endblock%}
+{% endblock%}                 
