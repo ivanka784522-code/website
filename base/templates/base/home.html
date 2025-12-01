@@ -2,20 +2,34 @@
 
 {% block content %}
 
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 2 3fr;
+    }
+</style>
 <div>
+ <div class="home-container">
+        <div>
+            <h3>Brouse Tipics </h3>
+            <hr>
+        </div>
     <a href="{% url 'create-room'%}"> Create</a>
+      <div>
+        {%for room in rooms %}
 
-    {%for room in rooms %}
-
-    <div>
+    
         <a href="{% url 'update-room'  room.id%}">Edit</a>
 
-        {{room.id}} -- <a href="{% url 'room' room.id%}">{{room.name}}</a>
 
+         <span>@{{room.host.username}}</span>
 
-    </div>
+        <h5>{{room.id}} -- <a href="{% url 'room' room.id%}">{{room.name}}</a></h5>
+         <small>{{room.topic.name}}</small>
+          {% endfor %}
+       </div>
 
-    {% endfor %}
+    
 </div>
-
+</div>
 {% endblock%}
